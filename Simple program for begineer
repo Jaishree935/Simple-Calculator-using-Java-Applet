@@ -1,0 +1,80 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+ 
+ /*<Applet code="calculator" width="500" height="600" ></Applet>*/
+public class calculator extends Applet implements ActionListener{
+                         Label l,l1,l2;
+                         TextField t,t1,t2;
+                          Button b,b1,b2,b3,b4;
+                          public calculator (){
+                                    setSize(400,500);
+                                     setVisible(true);
+                                     // setTitle("Simple Calculator");
+                                     setLayout(null);
+                                     l=new Label("Enter the First Number:");
+                                     l.setBounds(50,30,150,20); // (x,y,width,height)
+                                     add(l);
+                                     t = new TextField(20);
+                                     t.setBounds(220,30,150,20);
+                                     add(t);
+                                     l1 = new Label("Enter the Second Number: " );
+                                     l1.setBounds(50,70,150,20);
+                                    add(l1);
+                                    t1 = new TextField(20);
+                                    t1.setBounds(220,70,150,20);
+                                    add(t1);
+                                    l2 = new Label("Result: " );
+                                    l2.setBounds(50,110,150,20);
+                                    add(l2);
+                                    t2 = new TextField(20); 
+                                     t2.setBounds(220,110,150,20);
+                                    add(t2);
+                                    b = new Button("Addition");
+                                        b.setBounds(50, 150, 100, 30);
+                                    add(b);
+                                    b1 = new Button("Subtraction");
+                                     b1.setBounds(170, 150, 100, 30);
+                                    add(b1);
+                                    b2 = new Button("Multiplication");  
+                                          b2.setBounds(290, 150, 100, 30); 
+                                  add(b2);
+                                    b3 = new Button("Division"); 
+                                      b3.setBounds(50, 200, 100, 30);
+                                    add(b3);
+                                    b4=new Button("Clear ");
+                                     b4.setBounds(170, 200, 100, 30);
+                                    add(b4);
+                                    b.addActionListener (this);
+                                    b1.addActionListener (this);
+                                    b2.addActionListener (this); 
+                                    b3.addActionListener (this); 
+                                    b4.addActionListener(this);
+                                    
+                   }
+                           public void actionPerformed(ActionEvent e){
+                              int v = Integer.parseInt(t.getText());
+                               int v1 = Integer.parseInt(t1.getText());
+                                  if(e.getSource()==b){
+                                              t2.setText(String.valueOf(v+v1));    
+                                   }
+                                   else if(e.getSource()==b1){
+                                             t2.setText(String.valueOf(v-v1));  
+                                  }
+                                   else if(e.getSource()==b2){
+                                        t2.setText(String.valueOf(v*v1)); 
+                                 } 
+                                   else if(e.getSource()==b3){
+                                       t2.setText(String.valueOf(v/v1));
+                                 }
+                                  else if(e.getSource()==b4){
+                                       t.setText("");
+                                       t1.setText("");
+                                       t2.setText("");  
+                                }
+                        }
+   public static void main(String[] args){
+         calculator a = new calculator(); 
+         
+   } 
+}
